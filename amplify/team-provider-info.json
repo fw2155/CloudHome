@@ -1,0 +1,15 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cloudhome-staging-60632-authRole",
+      "UnauthRoleArn": "arn:aws:iam::698543564037:role/amplify-cloudhome-staging-60632-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::698543564037:role/amplify-cloudhome-staging-60632-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-cloudhome-staging-60632-deployment",
+      "UnauthRoleName": "amplify-cloudhome-staging-60632-unauthRole",
+      "StackName": "amplify-cloudhome-staging-60632",
+      "StackId": "arn:aws:cloudformation:us-east-1:698543564037:stack/amplify-cloudhome-staging-60632/f60d1830-7919-11ed-9880-0e68edb56a2f",
+      "AmplifyAppId": "d2vhbvtgtxc0ha"
+    }
+  }
+}
