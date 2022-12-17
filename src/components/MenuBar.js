@@ -1,4 +1,5 @@
-import * as React from 'react';
+//import * as React from 'react';
+import React, { useState, useContext, useEffect } from "react";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -9,6 +10,9 @@ import { purple } from '@mui/material/colors';
 import { Link } from 'react-router-dom';
 import LogIn from './LogIn';
 import SignUp from './SignUp';
+import Status from './Status';
+import { AccountContext } from "./Account";
+
 const theme = createTheme({
     palette: {
         primary: {
@@ -23,12 +27,23 @@ const theme = createTheme({
 });
 
 
+
 export default function MenuBar() {
     //   const token = cookie.load(JWT_TOKEN_COOKIE_NAME);
     //   const handleLogout = () => {
     //     cookie.remove(JWT_TOKEN_COOKIE_NAME);
     //     window.location.reload();
     //   };
+    const [status, setStatus] = useState(false);
+    const { getSession, logout } = useContext(AccountContext);
+    useEffect(() => {
+        getSession()
+            .then(session => {
+                console.log("Session: ", session);
+                setStatus(true);
+            });
+    }, []);
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <ThemeProvider theme={theme}>
@@ -41,9 +56,17 @@ export default function MenuBar() {
                         <Button to="/chat" component={Link} color="inherit">BOTChat</Button>
                         <Button to="/contact" component={Link} color="inherit">Contact</Button>
                         {/* <Button color='inherit'>Register/Login</Button> */}
-                        <SignUp />
-                        <LogIn />
+                        {/* <Account.Account> */}
+                        {/* <Account> */}
+                        {/* <Status /> */}
 
+                        {/* <SignUp /> */}
+                        {/* <LogIn /> */}
+                        <>
+                            {status ? <Button color='inherit' onClick={logout}>Logout</Button> : (<><LogIn /><SignUp /></>)}
+                        </>
+                        {/* </Account> */}
+                        {/* </Account.Account> */}
                     </Toolbar>
                 </AppBar>
             </ThemeProvider>

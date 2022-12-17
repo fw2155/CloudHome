@@ -1,5 +1,8 @@
 import UserPool from "../UserPool";
-import * as React from 'react';
+import React, { useState, useContext } from "react";
+// import { AccountContext } from "./Account";
+import { AccountContext } from './Account';
+//import * as React from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -20,6 +23,7 @@ export default function LogIn() {
     const [password, setPassword] = React.useState('');
     const [errorMessage, setErrorMessage] = React.useState('');
 
+    const { authenticate } = useContext(AccountContext);
     const handleClickOpen = () => {
         setErrorMessage('');
         setOpen(true);
@@ -46,26 +50,16 @@ export default function LogIn() {
         // UserPool.signUp(email,password,[],null,(err,data)=>{
         //     if (err)
         // })
-        const user = new CognitoUser({
-            Username: email,
-            Pool: UserPool,
-        })
-        const authDetails = new AuthenticationDetails({
-            Username: email,
-            Password: password,
-        });
-        user.authenticateUser(authDetails, {
-            onSuccess: (data) => {
-                console.log("onSuccess: ", data)
-            },
-            onFailure: (err) => {
-                console.error("onFailure: ", err)
-            },
-            newPasswordRequired: (data) => {
-                console.log("newPassWordRequired: ", data)
-            }
-        })
+        authenticate(email, password)
+            .then(data => {
+                console.log("Logged in: ", data)
+                window.location.reload();
+            })
+            .catch(err => {
+                console.log("Failed to login", err)
+            })
         setOpen(false);
+
     };
 
     return (

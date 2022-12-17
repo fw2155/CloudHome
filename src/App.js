@@ -3,6 +3,7 @@ import './App.css';
 import HomePage from './ui-components/HomePage';
 import SearchPage from './ui-components/SearchPage';
 import MenuBar from "./components/MenuBar";
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -12,7 +13,7 @@ import AIPage from './ui-components/AIPage'
 import CombinedHome from "./components/CombinedHome";
 import ContactPage from "./ui-components/ContactPage";
 import ChatPage from "./components/ChatPage";
-
+import { Account } from './components/Account';
 // function ChatPage() {
 //   return (
 //     <iframe
@@ -29,7 +30,9 @@ function App() {
   return (
     <Router>
       <div>
-        <MenuBar />
+        <Account>
+          <MenuBar />
+        </Account>
         <Routes>
           <Route exact path="/" element={<CombinedHome />} />
           <Route path="/chat" element={<ChatPage />} />
