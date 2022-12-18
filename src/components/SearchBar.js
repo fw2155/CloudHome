@@ -79,13 +79,13 @@ const Searchbar = () => {
                 >
                     {!transcript ? (<InputBase
                         sx={{ ml: 1, flex: 1 }}
-                        placeholder="Search location, properties, residental group"
+                        placeholder="Enter an address"
                         inputProps={{ 'aria-label': 'search houses' }}
                         value={inputText}
                         onChange={inputQuery}
                     />) : (<InputBase
                         sx={{ ml: 1, flex: 1 }}
-                        placeholder="Search location, properties, residental group"
+                        placeholder="Enter an address"
                         inputProps={{ 'aria-label': 'search houses' }}
                         value={transcript}
                     />)}

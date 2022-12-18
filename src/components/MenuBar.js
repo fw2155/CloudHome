@@ -12,6 +12,7 @@ import LogIn from './LogIn';
 import SignUp from './SignUp';
 import Status from './Status';
 import { AccountContext } from "./Account";
+import UploadSublease from "./UploadSublease";
 
 const theme = createTheme({
     palette: {
@@ -63,7 +64,7 @@ export default function MenuBar() {
                         {/* <SignUp /> */}
                         {/* <LogIn /> */}
                         <>
-                            {status ? <Button color='inherit' onClick={logout}>Logout</Button> : (<><LogIn /><SignUp /></>)}
+                            {status ? (<><UploadSublease /><Button color='inherit' onClick={logout}>Logout</Button></>) : (<><LogIn /><SignUp /></>)}
                         </>
                         {/* </Account> */}
                         {/* </Account.Account> */}
