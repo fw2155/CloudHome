@@ -9,6 +9,9 @@ import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Flex, Icon, Image, Text, View } from "@aws-amplify/ui-react";
 import MenuBar from "../components/MenuBar";
+import SearchBar from "../components/SearchBar"
+
+
 export default function HomePage(props) {
   const { overrides, ...rest } = props;
   return (
@@ -16,7 +19,7 @@ export default function HomePage(props) {
       {/* <MenuBar /> */}
       <View
         width="unset"
-        height="860px"
+        height="640px"
         display="block"
         gap="unset"
         alignItems="unset"
@@ -201,6 +204,7 @@ export default function HomePage(props) {
             ></Text> */}
           </Flex>
         </Flex>
+        {/* following flex is cloud */}
         <Flex
           gap="10px"
           direction="row"
@@ -209,7 +213,7 @@ export default function HomePage(props) {
           justifyContent="flex-start"
           alignItems="flex-start"
           position="absolute"
-          top="226px"
+          top="72px"
           left="138px"
           padding="10px 10px 10px 10px"
           {...getOverrideProps(overrides, "Frame 44")}
@@ -243,7 +247,7 @@ export default function HomePage(props) {
               alignItems="unset"
               position="absolute"
               top="-1px"
-              left="-44px"
+              left="-10px"
               padding="0px 0px 0px 0px"
               whiteSpace="pre-wrap"
               children="cLoud"
@@ -251,6 +255,7 @@ export default function HomePage(props) {
             ></Text>
           </View>
         </Flex>
+        {/* follow text is home */}
         <Text
           fontFamily="Roboto"
           fontSize="64px"
@@ -266,8 +271,8 @@ export default function HomePage(props) {
           gap="unset"
           alignItems="unset"
           position="absolute"
-          top="266px"
-          left="361px"
+          top="110px"
+          left="390px"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="Home"
@@ -286,6 +291,7 @@ export default function HomePage(props) {
           padding="10px 10px 10px 10px"
           {...getOverrideProps(overrides, "Frame 45")}
         ></Flex>
+        {/* Frame 43 is Need to sublease */}
         <Flex
           gap="10px"
           direction="row"
@@ -294,8 +300,8 @@ export default function HomePage(props) {
           justifyContent="flex-start"
           alignItems="flex-start"
           position="absolute"
-          top="355px"
-          left="90px"
+          top="210px"
+          left="150px"
           padding="10px 10px 10px 10px"
           {...getOverrideProps(overrides, "Frame 43")}
         >
@@ -324,6 +330,7 @@ export default function HomePage(props) {
             )}
           ></Text>
         </Flex>
+        {/* following flex controls searchbar */}
         <Flex
           gap="114px"
           direction="row"
@@ -332,14 +339,15 @@ export default function HomePage(props) {
           justifyContent="flex-start"
           alignItems="center"
           position="absolute"
-          top="500px"
+          top="320px"
           left="100px"
           borderRadius="15px"
           padding="10px 14px 10px 14px"
-          backgroundColor="rgba(255,255,255,1)"
+          // backgroundColor="rgba(255,255,255,1)"
           {...getOverrideProps(overrides, "Frame 9")}
         >
-          <View
+          <SearchBar />
+          {/* <View
             width="387px"
             height="24px"
             display="block"
@@ -375,12 +383,12 @@ export default function HomePage(props) {
                 overrides,
                 "Search location, properties, residental group"
               )}
-            ></Text>
-            <View
-              {...getOverrideProps(overrides, "Solid/Navigation/Location")}
-            ></View>
-          </View>
-          <View
+            ></Text> */}
+          {/* <View
+            {...getOverrideProps(overrides, "Solid/Navigation/Location")}
+          ></View>
+          {/* </View> */}
+          {/* <View
             width="140px"
             height="50px"
             display="block"
@@ -430,7 +438,7 @@ export default function HomePage(props) {
               children="Search"
               {...getOverrideProps(overrides, "Search")}
             ></Text>
-          </View>
+          </View> */}
         </Flex>
         <Flex
           gap="10px"
@@ -440,7 +448,7 @@ export default function HomePage(props) {
           justifyContent="flex-start"
           alignItems="flex-start"
           position="absolute"
-          top="141px"
+          top="5px"
           left="821px"
           padding="10px 10px 10px 10px"
           {...getOverrideProps(overrides, "Frame 42")}
@@ -460,6 +468,7 @@ export default function HomePage(props) {
             {...getOverrideProps(overrides, "unsplash:ctUWE7BUEzE")}
           ></Image>
         </Flex>
+        {/* following flex controls number row */}
         <Flex
           gap="72px"
           direction="row"
@@ -468,7 +477,7 @@ export default function HomePage(props) {
           justifyContent="flex-start"
           alignItems="flex-start"
           position="absolute"
-          top="627px"
+          top="457px"
           left="100px"
           padding="0px 0px 0px 0px"
           {...getOverrideProps(overrides, "Frame 15")}
@@ -639,6 +648,7 @@ export default function HomePage(props) {
             ></Text>
           </Flex>
         </Flex>
+        {/* control two clouds */}
         <View
           padding="0px 0px 0px 0px"
           width="202.12px"
@@ -648,7 +658,7 @@ export default function HomePage(props) {
           alignItems="unset"
           justifyContent="unset"
           position="absolute"
-          top="150px"
+          top="-10px"
           left="414px"
           {...getOverrideProps(overrides, "Group 1")}
         >

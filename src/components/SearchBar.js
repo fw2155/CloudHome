@@ -5,9 +5,8 @@ import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import Box from '@mui/material/Box';
-import image from "../img/umbreon.jpg";
 import { Link } from 'react-router-dom';
-import UploadImage from './UploadImage';
+// import UploadImage from './UploadImage';
 import { useNavigate } from "react-router-dom";
 import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice';
 import MicOffIcon from '@mui/icons-material/MicOff';
@@ -60,54 +59,34 @@ const Searchbar = () => {
 
     return (
         <Box
-            sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignContent: 'center',
-                alignItems: 'center',
-                justifyContent: 'center',
-                minHeight: "100vh",
-                backgroundImage: `url(${image})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center center",
-            }}
+        // sx={{
+        //     display: 'flex',
+        //     flexDirection: 'column',
+        //     alignContent: 'center',
+        //     alignItems: 'center',
+        //     justifyContent: 'center',
+        //     minHeight: "100vh",
+        //     // backgroundImage: `url(${image})`,
+        //     backgroundSize: "cover",
+        //     backgroundPosition: "center center",
+        // }}
         >
 
             <Box item xs={12} align="center">
-
-
-
-                {/* <Paper
-                    component="form"
-                    sx={{ m: '2px', p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
-                >
-                    <InputBase
-                        sx={{ ml: 1, flex: 1 }}
-                        placeholder="Search Photos"
-                        inputProps={{ 'aria-label': 'search photos' }}
-                        // value={transcript}
-                        onChange={inputQuery}
-                    />
-                    <IconButton type="button" sx={{ p: '10px' }} component={Link} aria-label="search" onClick={goToPhotos} to={`/photos?q=${inputText}`}>
-                        <SearchIcon />
-                    </IconButton>
-                </Paper> */}
-
-                <p>Microphone: {listening ? 'on' : 'off'}</p>
                 <Paper
                     component="form"
-                    sx={{ m: '2px', p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
+                    sx={{ m: '1px', p: '4px 4px', display: 'flex', alignItems: 'center', width: 570 }}
                 >
                     {!transcript ? (<InputBase
                         sx={{ ml: 1, flex: 1 }}
-                        placeholder="Search Photos"
-                        inputProps={{ 'aria-label': 'search photos' }}
+                        placeholder="Search location, properties, residental group"
+                        inputProps={{ 'aria-label': 'search houses' }}
                         value={inputText}
                         onChange={inputQuery}
                     />) : (<InputBase
                         sx={{ ml: 1, flex: 1 }}
-                        placeholder="Search Photos"
-                        inputProps={{ 'aria-label': 'search photos' }}
+                        placeholder="Search location, properties, residental group"
+                        inputProps={{ 'aria-label': 'search houses' }}
                         value={transcript}
                     />)}
 
@@ -126,7 +105,8 @@ const Searchbar = () => {
                     </IconButton>
 
                 </Paper>
-                <UploadImage />
+                <p>Microphone: {listening ? 'on' : 'off'}</p>
+                {/* <UploadImage /> */}
             </Box>
 
         </Box >
