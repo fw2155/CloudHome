@@ -75,7 +75,7 @@ const Searchbar = () => {
             <Box item xs={12} align="center">
                 <Paper
                     component="form"
-                    sx={{ m: '1px', p: '4px 4px', display: 'flex', alignItems: 'center', width: 570 }}
+                    sx={{ m: '1px', p: '4px 4px', display: 'flex', alignItems: 'center', width: 571 }}
                 >
                     {!transcript ? (<InputBase
                         sx={{ ml: 1, flex: 1 }}
