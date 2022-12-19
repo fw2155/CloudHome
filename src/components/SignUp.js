@@ -40,6 +40,7 @@ export default function SignUp() {
         if (value.length >= 8) {
             setIsValid(value.match(/^[^@]+@nyu\.edu$/));
         }
+        setEmail(event.target.value)
 
     };
 
