@@ -13,9 +13,20 @@ import MicOffIcon from '@mui/icons-material/MicOff';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 // import { TextField } from '@mui/material';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import { Typography } from '@mui/material';
+import FormLabel from '@mui/material/FormLabel';
 
 const Searchbar = () => {
-
+    //radio control
+    const [value, setValue] = React.useState('general');
+    const handleRadioChange = (event) => {
+        setValue(event.target.value);
+        console.log(value);
+    };
     const inputQuery = (e) => {
         var lowercase = e.target.value.toLowerCase()
         setInputText(lowercase);
@@ -73,6 +84,21 @@ const Searchbar = () => {
         >
 
             <Box item xs={12} align="center">
+                <FormControl>
+                    {/* <FormLabel id="demo-controlled-radio-buttons-group">Search Options</FormLabel> */}
+                    <RadioGroup
+                        row
+                        aria-labelledby="demo-row-radio-buttons-group-label"
+                        name="row-radio-buttons-group"
+
+
+                        value={value}
+                        onChange={handleRadioChange}
+                    >
+                        <FormControlLabel value="general" control={<Radio size="small" color="default" />} label={<Typography sx={{ fontSize: 15 }}>General Search</Typography>} />
+                        <FormControlLabel value="sublease" control={<Radio size="small" color="default" />} label={<Typography sx={{ fontSize: 15 }}>Sublease Search</Typography>} />
+                    </RadioGroup>
+                </FormControl>
                 <Paper
                     component="form"
                     sx={{ m: '1px', p: '4px 4px', display: 'flex', alignItems: 'center', width: 571 }}

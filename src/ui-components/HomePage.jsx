@@ -339,7 +339,7 @@ export default function HomePage(props) {
           justifyContent="flex-start"
           alignItems="center"
           position="absolute"
-          top="320px"
+          top="290px"
           left="100px"
           borderRadius="15px"
           padding="10px 14px 10px 14px"

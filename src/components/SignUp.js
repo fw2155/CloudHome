@@ -7,17 +7,24 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { Alert } from "@mui/material";
+import InfoIcon from '@mui/icons-material/Info';
+import Collapse from '@mui/material/Collapse';
+import CloseIcon from '@mui/icons-material/Close';
+import IconButton from '@mui/material/IconButton';
 // import login from '../services/jwtService';
 // import cookie from 'react-cookies';
 // import { JWT_TOKEN_COOKIE_NAME } from '../constants';
-const correct_format = '@nyu.edu';
+
 export default function SignUp() {
     const [open, setOpen] = React.useState(false);
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
+    const [isValid, setIsValid] = React.useState(true);
     // const [NetID, setNetID] = React.useState('');
     const [name, setName] = React.useState('');
     const [errorMessage, setErrorMessage] = React.useState('');
+    const [alertOpen, setAlertOpen] = React.useState(true);
 
     const handleClickOpen = () => {
         setErrorMessage('');
@@ -28,11 +35,16 @@ export default function SignUp() {
         setOpen(false);
     };
 
-    const validateEmail = (value) => {
-        if (value.length < 8 || value.substring(value.length - 8) !== '@nyu.edu') {
-            return 'Please enter a valid NYU email address';
+    const handleEmail = (event) => {
+        const value = event.target.value;
+        if (value.length >= 8) {
+            setIsValid(value.match(/^[^@]+@nyu\.edu$/));
         }
-        return null;
+
+    };
+
+    const handleAlertClose = () => {
+        setAlertOpen(false);
     };
 
     const handleRegister = (event) => {
@@ -70,7 +82,32 @@ export default function SignUp() {
             </Button>
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Sign Up</DialogTitle>
+
                 <DialogContent>
+                    <Collapse in={alertOpen}>
+                        <Alert
+                            action={
+                                <IconButton
+                                    aria-label="close"
+                                    color="inherit"
+                                    size="small"
+                                    onClick={() => {
+                                        setAlertOpen(false);
+                                    }}
+                                >
+                                    <CloseIcon fontSize="inherit" />
+                                </IconButton>
+                            }
+                            style={{ color: '#00000099' }}
+                            severity="info"
+                        // sx={{ mb: 2 }}
+                        >
+                            You will receive a verification email after register.
+                        </Alert>
+                    </Collapse>
+                    {/* <Alert style={{ color: '#00000099' }} severity="info" icon={<InfoIcon fontSize="inherit" />}>
+                        You will receive a verification email after register.
+                    </Alert> */}
                     <TextField
                         autoFocus
                         margin="dense"
@@ -80,8 +117,16 @@ export default function SignUp() {
                         type="email"
                         fullWidth
                         variant="standard"
-                        // error={this.state.errorText.length === 0 ? false : true}
-                        onChange={(event) => { setEmail(event.target.value) }}
+                        error={!isValid}
+                        helperText={isValid ? '' : 'Please enter a valid NYU email address'}
+                        InputProps={{
+                            inputProps: {
+                                pattern: '^[^@]+@nyu\.edu$',
+                                onChange: handleEmail
+                            }
+                        }}
+                    // error={this.state.errorText.length === 0 ? false : true}
+                    // onChange={(event) => { setEmail(event.target.value) }}
                     />
                     <TextField
                         autoFocus
@@ -108,6 +153,7 @@ export default function SignUp() {
                         {errorMessage}
                     </DialogContentText>
                 </DialogContent>
+
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
                     <Button onClick={handleRegister}>Register</Button>
