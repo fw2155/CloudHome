@@ -14,6 +14,7 @@ import Status from './Status';
 import { AccountContext } from "./Account";
 import UploadSublease from "./UploadSublease";
 
+
 const theme = createTheme({
     palette: {
         primary: {
@@ -54,7 +55,7 @@ export default function MenuBar() {
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         </Typography>
                         <Button to="/" component={Link} color="inherit">Home</Button>
-                        <Button to="/chat" component={Link} color="inherit">BOTChat</Button>
+                        {/* <Button to="/chat" component={Link} color="inherit">BOTChat</Button> */}
                         <Button to="/contact" component={Link} color="inherit">Contact</Button>
                         {/* <Button color='inherit'>Register/Login</Button> */}
                         {/* <Account.Account> */}

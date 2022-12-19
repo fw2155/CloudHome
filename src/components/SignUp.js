@@ -10,7 +10,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 // import login from '../services/jwtService';
 // import cookie from 'react-cookies';
 // import { JWT_TOKEN_COOKIE_NAME } from '../constants';
-
+const correct_format = '@nyu.edu';
 export default function SignUp() {
     const [open, setOpen] = React.useState(false);
     const [email, setEmail] = React.useState('');
@@ -26,6 +26,13 @@ export default function SignUp() {
 
     const handleClose = () => {
         setOpen(false);
+    };
+
+    const validateEmail = (value) => {
+        if (value.length < 8 || value.substring(value.length - 8) !== '@nyu.edu') {
+            return 'Please enter a valid NYU email address';
+        }
+        return null;
     };
 
     const handleRegister = (event) => {
@@ -51,6 +58,8 @@ export default function SignUp() {
             }
             console.log(data);
         })
+
+
         setOpen(false);
     };
 
@@ -66,10 +75,12 @@ export default function SignUp() {
                         autoFocus
                         margin="dense"
                         id="email"
+                        // validate={validateEmail}
                         label="Email"
                         type="email"
                         fullWidth
                         variant="standard"
+                        // error={this.state.errorText.length === 0 ? false : true}
                         onChange={(event) => { setEmail(event.target.value) }}
                     />
                     <TextField

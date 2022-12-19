@@ -4,11 +4,12 @@ import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import InputAdornment from '@mui/material/InputAdornment';
-import DialogContentText from '@mui/material/DialogContentText';
+// import InputAdornment from '@mui/material/InputAdornment';
+// import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { aptService } from '../services/aptService';
 // import Uploadfile from './Uploadfile';
+import UploadAlert from './UploadAlert';
 
 export default function UploadSublease() {
     const [open, setOpen] = React.useState(false);
@@ -18,8 +19,13 @@ export default function UploadSublease() {
     const [bathroom, setBathroom] = React.useState("");
     const [zipcode, setZipcode] = React.useState("");
     const [price, setPrice] = React.useState("");
+    const [startDate, setStartDate] = React.useState("");
+    const [endDate, setEndDate] = React.useState("");
     const [contact, setContact] = React.useState("");
     const [other, setOther] = React.useState("");
+    const [alertOpen, setAlertOpen] = React.useState(false);
+    const [alertMessage, setAlertMessage] = React.useState('');
+    const [alertSeverity, setAlertSeverity] = React.useState('info');
 
     //handle click open
     const handleClickOpen = () => {
@@ -49,6 +55,14 @@ export default function UploadSublease() {
     function handlePrice(event) {
         setPrice(event.target.value);
         console.log(price)
+    }
+    function handleStartDate(event) {
+        setStartDate(event.target.value);
+        console.log(startDate)
+    }
+    function handleEndDate(event) {
+        setEndDate(event.target.value);
+        console.log(endDate)
     }
     function handleOther(event) {
         setOther(event.target.value);
@@ -96,24 +110,29 @@ export default function UploadSublease() {
         //         console.log(error)
         //     })
         const data = {
-            'city': city,
-            'address': address,
-            'zipcode': zipcode,
-            'bedroom': bedroom,
-            'bathroom': bathroom,
-            'contact': contact,
-            'price': price,
-            'other': other,
+            "city": city,
+            "address": address,
+            "zipcode": zipcode,
+            "bedroom": bedroom,
+            "bathroom": bathroom,
+            "startDate": startDate,
+            "endDate": endDate,
+            "contact": contact,
+            "price": price,
+            "other": other,
         }
         aptService.uploadSublease(data, config)
             .then(function (response) {
                 console.log(response)
+                setAlertOpen(true);
+                setAlertMessage(`Successfully upload sublease`);
+                setAlertSeverity('success');
                 // setUrls(response.data.results)
             })
             .catch(function (error) {
                 console.log(error)
             })
-        setOpen(false);
+        // setOpen(false);
     };
 
 
@@ -152,15 +171,6 @@ export default function UploadSublease() {
                         variant="standard"
                         onChange={handleZipcode}
                     />
-                    {/* <TextField
-                        autoFocus
-                        margin="normal"
-                        id="floor"
-                        label="Floor"
-                        fullWidth
-                        variant="standard"
-                        onChange={handleFloor}
-                    /> */}
                     <TextField
                         autoFocus
                         margin="normal"
@@ -178,6 +188,24 @@ export default function UploadSublease() {
                         fullWidth
                         variant="standard"
                         onChange={handleBathroom}
+                    />
+                    <TextField
+                        autoFocus
+                        margin="normal"
+                        id="startDate"
+                        label="StartDate (year-month-date)"
+                        fullWidth
+                        variant="standard"
+                        onChange={handleStartDate}
+                    />
+                    <TextField
+                        autoFocus
+                        margin="normal"
+                        id="endDate"
+                        label="EndDate (year-month-date)"
+                        fullWidth
+                        variant="standard"
+                        onChange={handleEndDate}
                     />
                     <TextField
                         autoFocus
@@ -209,10 +237,17 @@ export default function UploadSublease() {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button onClick={handleClose}>Close</Button>
                     <Button onClick={handleUploadClose}>Upload</Button>
                 </DialogActions>
+                <UploadAlert
+                    alertOpen={alertOpen}
+                    alertMessage={alertMessage}
+                    alertSeverity={alertSeverity}
+                    closeAlert={() => { setAlertOpen(false) }}
+                />
             </Dialog>
+
         </div>
     );
 }
