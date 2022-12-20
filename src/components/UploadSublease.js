@@ -99,6 +99,7 @@ export default function UploadSublease() {
                 'Accept': '*/*',
                 'Content-Type': 'text/plain',
                 'X-Api-Key': 'CL93pjmrta9aRzTAxqzne9PLZ1zUaXwL2GRjLQCA',
+
             },
         };
         // photoService.sendPhoto(bucket, imageName, file, config)

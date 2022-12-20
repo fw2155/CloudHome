@@ -14,6 +14,8 @@ import CombinedHome from "./components/CombinedHome";
 import ContactPage from "./ui-components/ContactPage";
 import ChatPage from "./components/ChatPage";
 import { Account } from './components/Account';
+import SearchApts from "./views/SearchApts";
+
 // function ChatPage() {
 //   return (
 //     <iframe
@@ -37,6 +39,7 @@ function App() {
           <Route exact path="/" element={<CombinedHome />} />
           <Route path="/chat" element={<ChatPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/searchhouse" element={<SearchApts />} />
         </Routes>
       </div>
     </Router>

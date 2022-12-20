@@ -3,6 +3,9 @@ import axios from "../axios";
 export const aptService = {
     uploadSublease: (data, headers) => {
         return axios.post(`/upload`, data, headers); // baseUrl + '/' + 'courses'  34.x.x.x:8080/courses
+    },
+    getApt: (query, headers) => {
+        return axios.get(`/searchhouse?q=${query}`, headers)
     }
     // getPhotos: (query) => {
     //     return axios.get(`/search?q=${query}`)

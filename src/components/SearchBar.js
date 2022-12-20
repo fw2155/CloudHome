@@ -22,10 +22,11 @@ import FormLabel from '@mui/material/FormLabel';
 
 const Searchbar = () => {
     //radio control
-    const [value, setValue] = React.useState('general');
+    const [searchType, setSearchType] = React.useState('general');
+    console.log(searchType)
     const handleRadioChange = (event) => {
-        setValue(event.target.value);
-        console.log(value);
+        setSearchType(event.target.value);
+        console.log(searchType);
     };
     const inputQuery = (e) => {
         var lowercase = e.target.value.toLowerCase()
@@ -48,22 +49,22 @@ const Searchbar = () => {
 
 
 
-    const goToPhotos = () => {
+    const goToApts = () => {
         if (transcript !== '') {
             // var getTranscript = transcript
             // setInputText(getTranscript)
             console.log('get transcript', transcript, inputText)
-            navigate({
-                pathname: '/photos',
-                search: `?q=${transcript}`
-            });
+            // navigate({
+            //     pathname: '/searchhouse',
+            //     search: `?q=${transcript}`,
+            // }, { state: { data: 'general' } }); //general or sublease
             // getTranscript = ''
         }
         else {
-            navigate({
-                pathname: '/photos',
-                search: `?q=${inputText}`
-            });
+            // navigate({
+            //     pathname: '/searchhouse',
+            //     search: `?q=${inputText}`,
+            // });
         }
 
     }
@@ -92,7 +93,7 @@ const Searchbar = () => {
                         name="row-radio-buttons-group"
 
 
-                        value={value}
+                        value={searchType}
                         onChange={handleRadioChange}
                     >
                         <FormControlLabel value="general" control={<Radio size="small" color="default" />} label={<Typography sx={{ fontSize: 15 }}>General Search</Typography>} />
@@ -126,9 +127,17 @@ const Searchbar = () => {
                         <RestartAltIcon />
                     </IconButton>
                     {/* <MicTranscribe  /> */}
-                    <IconButton type="button" sx={{ p: '10px' }} component={Link} aria-label="search" onClick={goToPhotos} to={`/photos?q=${transcript || inputText}`}>
+                    <Link
+                        to={`/searchhouse?q=${transcript || inputText}`}
+                        state={{ searchType }}
+                    >
+                        <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
+                            <SearchIcon />
+                        </IconButton>
+                    </Link>
+                    {/* <IconButton type="button" sx={{ p: '10px' }} component={Link} aria-label="search" onClick={goToApts} to={`/searchhouse?q=${transcript || inputText}`} >
                         <SearchIcon />
-                    </IconButton>
+                    </IconButton> */}
 
                 </Paper>
                 <p>Microphone: {listening ? 'on' : 'off'}</p>
