@@ -1,6 +1,7 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Url [http://cloudhome-clientbucket-12eby7k2vgenc.s3-website-us-east-1.amazonaws.com]
 
 ## Available Scripts
 
