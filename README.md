@@ -1,3 +1,6 @@
+# Architecture Diagram
+![cloudHome](https://github.com/fw2155/cloud-home/blob/main/cloudHome.pdf)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
