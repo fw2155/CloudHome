@@ -83,7 +83,7 @@ def sendsesInvaild(emailadd):
     # The HTML body of the email.
     BODY_HTML = """<html>
     <body>
-        <p>Sorry, we couldn't find the place that your looking for. </p>
+        <p> Sorry, no matches were found for your needs. However, we are added you to the subscription list. If there is a new listing posted, we will automatically send your an email notification. </p>
     </body>
     </html>"""            
 
