@@ -51,7 +51,7 @@ const imageList = [
 
 ]
 
-export default function ResultCard({ address, price, fullAddress, bedroom }) {
+export default function ResultGeneralCard({ address, price, fullAddress, bedroom, imageUrl }) {
     const [expanded, setExpanded] = React.useState(false);
     const [iconColor, setIconColor] = React.useState('inherit');
     const handleExpandClick = () => {
@@ -60,8 +60,8 @@ export default function ResultCard({ address, price, fullAddress, bedroom }) {
     const handleFavClick = () => {
         setIconColor(iconColor === 'inherit' ? 'secondary' : 'inherit');
     };
-    const index = Math.floor(Math.random() * imageList.length);
-    const imageUrl = imageList[index];
+    // const index = Math.floor(Math.random() * imageList.length);
+    // const imageUrl = imageList[index];
 
 
     return (
@@ -80,6 +80,7 @@ export default function ResultCard({ address, price, fullAddress, bedroom }) {
                 title={address}
                 subheader={`$${price}`}
             />
+            {/* <ImageComponent imageUrl={imageUrl} /> */}
             <CardMedia
                 component="img"
                 height="194"

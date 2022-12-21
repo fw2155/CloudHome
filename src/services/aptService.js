@@ -6,6 +6,9 @@ export const aptService = {
     },
     getApt: (query, headers) => {
         return axios.get(`/searchhouse?q=${query}`, headers)
+    },
+    notifyLandlord: (data, headers) => {
+        return axios.post(`/searchhouse`, data, headers);
     }
     // getPhotos: (query) => {
     //     return axios.get(`/search?q=${query}`)

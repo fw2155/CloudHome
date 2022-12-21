@@ -27,6 +27,7 @@ export default function UploadSublease() {
     const [alertMessage, setAlertMessage] = React.useState('');
     const [alertSeverity, setAlertSeverity] = React.useState('info');
 
+    const [isStartValid, setStartValid] = React.useState(true);
     //handle click open
     const handleClickOpen = () => {
         setOpen(true);
@@ -57,7 +58,13 @@ export default function UploadSublease() {
         console.log(price)
     }
     function handleStartDate(event) {
+        const currentDate = new Date();
         setStartDate(event.target.value);
+        if (startDate < currentDate) {
+            setStartValid(false);
+        } else {
+            setStartValid(true);
+        }
         console.log(startDate)
     }
     function handleEndDate(event) {
@@ -197,7 +204,14 @@ export default function UploadSublease() {
                         label="StartDate (year-month-date)"
                         fullWidth
                         variant="standard"
-                        onChange={handleStartDate}
+                        error={!isStartValid}
+                        helperText={isStartValid ? '' : 'Please enter a time from today onwards'}
+                        InputProps={{
+                            inputProps: {
+                                onChange: handleStartDate
+                            }
+                        }}
+                    // onChange={handleStartDate}
                     />
                     <TextField
                         autoFocus

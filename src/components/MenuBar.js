@@ -13,7 +13,7 @@ import SignUp from './SignUp';
 import Status from './Status';
 import { AccountContext } from "./Account";
 import UploadSublease from "./UploadSublease";
-
+import cookie from 'react-cookies';
 
 const theme = createTheme({
     palette: {
@@ -42,6 +42,10 @@ export default function MenuBar() {
         getSession()
             .then(session => {
                 console.log("Session: ", session);
+                console.log(session.idToken.payload.email)
+                console.log(session.idToken.payload.name)
+                cookie.save('nm', session.idToken.payload.name);
+                cookie.save('em', session.idToken.payload.email);
                 setStatus(true);
             });
     }, []);
