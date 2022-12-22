@@ -1,5 +1,5 @@
 # Architecture Diagram
-![cloudHome](cloudHome.jpg)
+![CloudHome.jpg](https://github.com/fw2155/cloud-home/blob/main/CloudHome.jpg)
 
 # Getting Started with Create React App
 
