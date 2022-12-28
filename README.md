@@ -1,10 +1,25 @@
 # Architecture Diagram
 ![CloudHome.jpg](https://github.com/fw2155/cloud-home/blob/main/CloudHome.jpg)
 
-# Getting Started with Create React App
+# React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
-Url : http://cloudhome-clientbucket-12eby7k2vgenc.s3-website-us-east-1.amazonaws.com
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)\
+Url : http://cloudhome-clientbucket-12eby7k2vgenc.s3-website-us-east-1.amazonaws.com \
+Demo : https://www.youtube.com/watch?v=KZbCZxPPWjE&t=182s
+
+# Main Functionality
+- Support General Search(data fetched from API)/Sublease Search(data uploaded by users)
+- Upload Sublease
+- Bot recommendation based on preference (price/location)
+- Click like button to notify landlord that someone is interested in his/her listing through landlord's email contact
+- When someone uploads sublease, notify users on the subscription list
+
+# Home Page
+![HomePage1](https://github.com/fw2155/cloud-home/blob/main/screenshots/functionality/main_page1.png)
+![HomePage2](https://github.com/fw2155/cloud-home/blob/main/screenshots/functionality/main_page2.png)
+![HomePage3](https://github.com/fw2155/cloud-home/blob/main/screenshots/functionality/main_page3.png)
+
+More screenshots can be found in screenshots folder or check demo video.
 
 ## Available Scripts
 
