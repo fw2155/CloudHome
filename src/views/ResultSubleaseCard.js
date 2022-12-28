@@ -57,18 +57,19 @@ export default function ResultSubleaseCard({ address, price, fullAddress, bedroo
     const handleFavClick = () => {
         setIconColor(iconColor === 'inherit' ? 'secondary' : 'inherit');
         // console.log(address)
-        // if (iconColor == 'inherit') {
+        if (iconColor == 'inherit') {
+            console.log('here')
+            aptService.notifyLandlord(dataString, config)
+                .then(function (response) {
+                    console.log(response)
+                    // setUrls(response.data.results)
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
+        }
 
-        // }
-        console.log('here')
-        aptService.notifyLandlord(dataString, config)
-            .then(function (response) {
-                console.log(response)
-                // setUrls(response.data.results)
-            })
-            .catch(function (error) {
-                console.log(error)
-            })
+
 
     };
     // const index = Math.floor(Math.random() * imageList.length);

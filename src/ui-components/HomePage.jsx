@@ -272,7 +272,7 @@ export default function HomePage(props) {
           alignItems="unset"
           position="absolute"
           top="110px"
-          left="390px"
+          left="410px"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="Home"
